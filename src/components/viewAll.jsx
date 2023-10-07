@@ -10,7 +10,7 @@ export default function ViewAll() {
       <Link
       to='/AllProducts'
         type="button"
-        className="text-gray-400 bg-gradient-to-r from-white to-gray-300 hover:bg-gradient-to-bl font-semibold focus:scale-110 ease-linear duration-200 focus:outline-none focus:ring-green-300 dark:focus:ring-green-800  rounded-lg text-lg px-9 py-2.5 text-center mr-2 mb-2"
+        className="text-gray-400 bg-gradient-to-r from-white to-gray-300 hover:bg-gradient-to-bl font-semibold focus:scale-110 ease-linear duration-200 focus:outline-none focus:ring-green-300   rounded-lg text-lg px-9 py-2.5 text-center mr-2 mb-2"
       >
         view all product
       </Link>

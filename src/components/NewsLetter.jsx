@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 
 
 export default function NewsLetter() {
@@ -33,12 +34,12 @@ export default function NewsLetter() {
               type="text"
               className="flex-grow w-full h-12 px-4 mb-3  transition duration-200 border-2 border-transparent rounded appearance-none md:mr-2 md:mb-0 bg-deep-purple-900 focus:border-teal-accent-700 focus:outline-none focus:shadow-outline"
             />
-            <a
-              href="/"
-              className="inline-flex items-center justify-center w-full h-12 px-6 font-semibold tracking-wide text-gray-200 transition duration-200 rounded shadow-md md:w-auto hover:text-deep-purple-900 bg-teal-accent-400 hover:bg-teal-accent-700 focus:shadow-outline focus:outline-none"
+            <Link
+              to="/Subscribe"
+              className="inline-flex items-center justify-center w-full h-12 px-6 tracking-wide text-slate-400 font-bold transition duration-200 rounded shadow-md md:w-auto hover:text-deep-purple-900 bg-white hover:bg-teal-accent-700 focus:shadow-outline focus:outline-none"
             >
               Subscribe
-            </a>
+            </Link>
           </form>
           <p className="max-w-md mb-10 text-xs tracking-wide text-indigo-100 sm:text-sm sm:mx-auto md:mb-16">
             Sed ut perspiciatis unde omnis iste natus error sit voluptatem
