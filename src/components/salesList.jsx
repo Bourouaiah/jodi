@@ -18,7 +18,7 @@ export default function SalesList({commmon}) {
             <Link
               key={i}
               to={`/saleDetails/${item.id}`}
-              className="bg-blue-300 w-full text-xl flex justify-center items-center font-semibold text-center  h-40 rounded text-white"
+              className="bg-black w-full text-xl flex justify-center items-center font-semibold text-center  h-40 rounded text-white"
             >
               {item.name}
             </Link>

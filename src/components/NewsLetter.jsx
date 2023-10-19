@@ -11,7 +11,7 @@ export default function NewsLetter({ show }) {
   return (
     <div
       id="#Subscribe"
-      className="relative bg-gradient-to-r from-blue-500 to-cyan-500"
+      className="relative bg-black/95"
     >
       <div className="absolute inset-x-0 bottom-0">
         {show ? (
