@@ -151,7 +151,7 @@ export default function Header() {
 
           <NavLink
             onClick={closeMenu}
-            to="sale"
+            to="SalesList"
             className={({ isActive }) =>
               isActive
                 ? "font-bold md:text-lg text-md text-sky_blue flex gap-2 items-center hover:bg-sky_blue hover:text-white ease-linear duration-200  cursor-pointer w-full px-4 py-2 rounded-md hover:shadow "
@@ -159,7 +159,7 @@ export default function Header() {
             }
           >
             <AiOutlineShoppingCart className="text-lg" />
-            <Link to="sales" className="font-semibold text-lg">
+            <Link to="SalesList" className="font-semibold text-lg">
               Sale
             </Link>
           </NavLink>
