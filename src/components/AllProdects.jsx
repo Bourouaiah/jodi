@@ -1,43 +1,43 @@
-import React from 'react'
-import data from '../data/data';
-import { Link } from 'react-router-dom';
-import CommenSection from './CommenSection';
-export default function AllProdects() {
+import React from "react";
+import data from "../data/data";
+import { Link } from "react-router-dom";
+import CommenSection from "./CommenSection";
+
+export default function AllProducts() {
   return (
-    <section className="">
-     <CommenSection/>
-      <div className=" w-fit mx-auto grid grid-cols-1 xl:grid-cols-4 lg:grid-cols-3 md:grid-cols-2 justify-items-center justify-center gap-y-20 gap-x-14 mt-10 mb-5">
+    <section>
+      <CommenSection title="All products" />
+      <div className="w-fit container m-auto mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-4 gap-4 mt-10 mb-5">
         {data.map((val, i) => (
-          <div key={i} className="mb-0.5 py-6 px-4">
-            <div className="w-72 bg-white shadow-md rounded-xl duration-500 hover:scale-105 hover:shadow-xl">
+          <div key={i} className="mb-2 py-2 px-2 ">
+            <div className="bg-white shadow-lg rounded-xl duration-500 hover:scale-105 hover:shadow-xl">
               <div>
-                <Link to={`/CartDetails/${val.id}`}>
+                <div>
                   <img
                     src={val.image}
                     alt="Product"
-                    className="h-80 w-72 object-cover rounded-t-xl"
+                    className="h-48 w-full object-cover rounded-t-xl"
                   />
-                </Link>
-                <div className="px-4 py-3 w-72">
-                  <span className="text-gray-400 mr-3 uppercase text-xs">
+                </div>
+                <div className="px-2 py-2">
+                  <span className="text-gray-400 mr-2 uppercase text-xs">
                     Brand
                   </span>
-                  <p className="text-lg font-bold text-black truncate block capitalize">
+                  <p className="text-sm font-bold text-black truncate capitalize">
                     {val.title}
                   </p>
                   <div className="flex items-center">
-                    <p className="text-lg font-semibold text-black cursor-auto my-3">
-                      <span className="text-gray-400 mr-3 uppercase text-xs">
-                        start from
+                    <p className="text-sm font-semibold text-black cursor-auto my-1">
+                      <span className="text-gray-400 mr-2 uppercase text-xs">
+                        Start from
                       </span>{" "}
                       ${val.price}
                     </p>
-
                     <div className="ml-auto">
                       <svg
                         xmlns="http://www.w3.org/2000/svg"
-                        width="20"
-                        height="20"
+                        width="18"
+                        height="18"
                         fill="currentColor"
                         className="bi bi-bag-plus"
                         viewBox="0 0 16 16"

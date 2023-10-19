@@ -1,21 +1,29 @@
+import { AiFillAlert } from "react-icons/ai";
 import { Link } from "react-router-dom";
 
-
-export default function NewsLetter() {
+import instegram from "../assets/instagram.png";
+import tikTokBlack from "../assets/tik-tok-black.png";
+import tikTokWhite from "../assets/tik-tok-white.png";
+import facebook from "../assets/icons8-facebook-48.png";
+import email from "../assets/gmail.png";
+import twitter from "../assets/1690643591twitter-x-logo-png.png";
+export default function NewsLetter({ show }) {
   return (
     <div
       id="#Subscribe"
       className="relative bg-gradient-to-r from-blue-500 to-cyan-500"
     >
       <div className="absolute inset-x-0 bottom-0">
-        <svg
-          viewBox="0 0 224 12"
-          fill="currentColor"
-          className="w-full -mb-1 text-white"
-          preserveAspectRatio="none"
-        >
-          <path d="M0,0 C48.8902582,6.27314026 86.2235915,9.40971039 112,9.40971039 C137.776408,9.40971039 175.109742,6.27314026 224,0 L224,12.0441132 L0,12.0441132 L0,0 Z"></path>
-        </svg>
+        {show ? (
+          <svg
+            viewBox="0 0 224 12"
+            fill="currentColor"
+            className="w-full -mb-1 text-white"
+            preserveAspectRatio="none"
+          >
+            <path d="M0,0 C48.8902582,6.27314026 86.2235915,9.40971039 112,9.40971039 C137.776408,9.40971039 175.109742,6.27314026 224,0 L224,12.0441132 L0,12.0441132 L0,0 Z"></path>
+          </svg>
+        ) : null}
       </div>
       <div className="px-4 py-16 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8 lg:py-20">
         <div className="relative max-w-2xl sm:mx-auto sm:max-w-xl md:max-w-2xl sm:text-center">
@@ -23,9 +31,9 @@ export default function NewsLetter() {
             Subscribe to our newsletter
           </h2>
           <p className="mb-6 text-base text-indigo-200 md:text-lg">
-            Sed ut perspiciatis unde omnis iste natus error sit voluptatem
-            accusantium doloremque laudantium, totam rem aperiam, eaque ipsa
-            quae. explicabo. Sed ut perspiciatis unde omnis.
+            Stay in the loop with our newsletter and be the first to discover
+            exciting updates, exclusive offers, and valuable insights delivered
+            directly to your inbox
           </p>
           <form className="flex flex-col items-center w-full mb-4 md:flex-row md:px-16">
             <input
@@ -36,31 +44,32 @@ export default function NewsLetter() {
             />
             <Link
               to="/Subscribe"
-              className="inline-flex items-center justify-center w-full h-12 px-6 tracking-wide text-slate-400 font-bold transition duration-200 rounded shadow-md md:w-auto hover:text-deep-purple-900 bg-white hover:bg-teal-accent-700 focus:shadow-outline focus:outline-none"
+              className="flex items-center gap-2 justify-center w-full h-12 px-6 tracking-wide text-slate-400 font-bold transition duration-200 rounded shadow-md md:w-auto hover:text-deep-purple-900 bg-white hover:bg-teal-accent-700 focus:shadow-outline focus:outline-none"
             >
-              Subscribe
+              <AiFillAlert className="text-2xl mb-1" />
+              <p>Subscribe</p>
             </Link>
           </form>
-          <p className="max-w-md mb-10 text-xs tracking-wide text-indigo-100 sm:text-sm sm:mx-auto md:mb-16">
-            Sed ut perspiciatis unde omnis iste natus error sit voluptatem
-            accusantium doloremque.
-          </p>
-          <a
-            href="/"
-            aria-label="Scroll down"
-            className="flex animate-bounce items-center justify-center w-10 h-10 mx-auto text-white duration-300 transform border border-gray-400 rounded-full hover:text-teal-accent-400 hover:border-teal-accent-400 hover:shadow hover:scale-110"
+          <ul
+            className={`
+             flex  items-center w-full   justify-center mt-5 space-x-4`}
           >
-            <svg
-              className=""
-              xmlns="http://www.w3.org/2000/svg"
-              width="12"
-              height="12"
-              viewBox="0 0 12 12"
-              fill="currentColor"
-            >
-              <path d="M10.293,3.293,6,7.586,1.707,3.293A1,1,0,0,0,.293,4.707l5,5a1,1,0,0,0,1.414,0l5-5a1,1,0,1,0-1.414-1.414Z"></path>
-            </svg>
-          </a>
+            <a href="">
+              <img className="w-8" src={instegram} alt="" />
+            </a>
+            <a href="">
+              <img className="w-8" src={tikTokBlack} alt="" />
+            </a>
+            <a href="#">
+              <img className="w-8" src={email} alt="" />
+            </a>
+            <a href="#">
+              <img className="w-10" src={facebook} alt="" />
+            </a>
+            <a href="#">
+              <img className="w-8" src={twitter} alt="" />
+            </a>
+          </ul>
         </div>
       </div>
     </div>

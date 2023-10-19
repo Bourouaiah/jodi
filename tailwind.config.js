@@ -17,8 +17,6 @@ export default {
         'sky_blue': '#3056d3',
         'bag': "#3056d3",
         "more_blue": "#104c91"
-
-
       },
     },
   },

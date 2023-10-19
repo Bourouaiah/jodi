@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import React from "react";
 import localVideo from "../assets/yt5s.com-Web Design Company video background.mp4";
 import Statistic from "./Statistic";
@@ -6,13 +6,16 @@ import CartList from "./CartList";
 import ViewAll from "../components/viewAll";
 import Features from "./Features";
 import NewsLetter from "./NewsLetter";
+import SalesList from './salesList'
 import { AiFillAlert, AiOutlineRight } from "react-icons/ai";
+import { useEffect } from "react";
 
 export default function Home() {
+    
   return (
     <>
       <div className="overflow-hidden  ease-linear duration-500 relative h-screen flex items-start sm:justify-center  ">
-        <div className="absolute  w-full h-screen z-20 bg-black/60  backdrop-blur-sm backdrop-filter  bg-opacity-20"></div>
+        <div className="absolute  w-full h-screen z-20 bg-black/40  backdrop-blur-sm backdrop-filter  bg-opacity-20"></div>
         <video
           src={localVideo}
           autoPlay
@@ -22,13 +25,13 @@ export default function Home() {
            w-full  h-screen max-w-none object-cover"
         ></video>
         <div className="text-white z-20 relative  container m-auto md:px-12 py-16 rounded-lg flex flex-col justify-center items-center">
-          <h1 className="text-3xl sm:text-4xl lg:w-2/3  text-center  md:text-5xl  text-transparent  bg-clip-text bg-gradient-to-r from-blue-400 to-sky_blue mb-5 font-extrabold">
-            Seth and SonsPremier Estate Sales
+          <h1 className="text-2xl text-white uppercase sm:text-4xl lg:w-2/3  text-center  md:text-5xl  text-transparent   mb-3 ">
+            Seth and Sons
           </h1>
-          <p className="text-lg  text-transparent  bg-clip-text bg-gradient-to-r from-gray-200 to-white font-medium  text-md text-center mb-8 px-12">
-            Explore estates of departed individuals, each offering a curated
-            collection of items.
-          </p>
+          <h1 className="text-2xl uppercase text-white  sm:text-4xl lg:w-2/3  text-center  md:text-5xl  text-transparent   mb-12">
+            Estate sales
+          </h1>
+
           <div className="flex justify-center items-center gap-2 ">
             <Link
               id="Subscribe"
@@ -47,10 +50,12 @@ export default function Home() {
           </div>
         </div>
       </div>
-      <NewsLetter />
-      <CartList />
-      <ViewAll />
-      <Features />
+      <NewsLetter show={true} />
+      <SalesList commmon = {false}/>
+
+      {/* <CartList /> */}
+      {/* <ViewAll />
+      <Features /> */}
 
       {/* <section className="h-screen w-full"></section> */}
     </>

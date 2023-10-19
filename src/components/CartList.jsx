@@ -28,6 +28,7 @@ export default function CartList() {
       <Splide options={splideOptions}>
         {data.map((val, i) => (
           <SplideSlide key={i} className="mb-0.5 py-6 px-4">
+           
             <div className="w-72 bg-white shadow-md rounded-xl duration-500 hover:scale-105 hover:shadow-xl">
               <div>
                 <Link to={`/CartDetails/${val.id}`}>

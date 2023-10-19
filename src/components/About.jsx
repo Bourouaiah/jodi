@@ -2,8 +2,8 @@ import React from "react";
 
 const About = () => {
   return (
-    <section className="pt-20 pb-10 lg:pt-[120px] lg:pb-20">
-      <div className="container m-auto">
+    <section className="container m-auto p-4">
+      <div className="">
         <div className="flex flex-wrap -mx-4">
           <div className="w-full px-4">
             <div className="mx-auto mb-[60px] max-w-[510px] text-center">
@@ -31,8 +31,6 @@ const About = () => {
             profession="Web Developer"
             imageSrc="https://i.ibb.co/8P6cvVy/image-01-1.jpg"
           />
-        
-         
         </div>
       </div>
     </section>
