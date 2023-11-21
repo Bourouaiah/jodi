@@ -6,8 +6,8 @@ import tikTokBlack from "../assets/tik-tok-black.png";
 import tikTokWhite from "../assets/tik-tok-white.png";
 import facebook from "../assets/icons8-facebook-48.png";
 import email from "../assets/gmail.png";
-import twitter from '../assets/1690643591twitter-x-logo-png.png'
-import logo from '../assets/pngegg.png'
+import twitter from "../assets/1690643591twitter-x-logo-png.png";
+import logo from "../assets/pngegg.png";
 import {
   AiOutlineShopping,
   AiOutlinePlus,
@@ -21,16 +21,24 @@ import {
   AiFillEdit,
   AiFillIdcard,
   AiOutlineShoppingCart,
+  AiOutlineLogout,
 } from "react-icons/ai";
+import UseAuth from "../custom-hook/GetUser";
 import { useEffect, useState } from "react";
+import { signOut } from "firebase/auth";
+import { auth } from "../firebase/firebaseConfig";
 export default function Header() {
+  const { currentUser } = UseAuth();
+  const [currentUserState, setCurrentUserState] = useState(currentUser);
+  useEffect(() => {
+    setCurrentUserState(currentUser);
+  }, [currentUser]);
   const [isSticky, setIsSticky] = useState(false);
   const parm = useLocation();
-
   useEffect(() => {
     // Function to handle scrolling
     const handleScroll = () => {
-      if (window.scrollY >25) {
+      if (window.scrollY > 25) {
         setIsSticky(true);
       } else {
         setIsSticky(false);
@@ -78,6 +86,16 @@ export default function Header() {
       element: "newsletter",
     },
   ];
+  console.log(currentUserState, "AiOutlineLogout");
+ const logOut = () => {
+   signOut(auth)
+     .then(() => {
+       console.log("logedOut successfully ");
+     })
+     .catch((ere) => {
+       console.log(ere);
+     });
+ };
   return (
     <nav
       className={`py-5 px-5 top-0 backdrop-blur-sm md:overflow-hidden  backdrop-filter  w-full ${
@@ -271,6 +289,11 @@ export default function Header() {
         </div>
 
         <div className="flex gap-3 items-center justify-center">
+          {currentUser ? (
+            <button onClick={logOut}>
+              <AiOutlineLogout className="text-2xl " />
+            </button>
+          ) : null}
           <a href="#">
             <img className="w-7" src={instegram} alt="" />
           </a>

@@ -9,6 +9,7 @@ import NewsLetter from "./NewsLetter";
 import SalesList from './salesList'
 import { AiFillAlert, AiOutlineRight } from "react-icons/ai";
 import { useEffect } from "react";
+import ProgresBar from "./ProgresBar";
 
 export default function Home() {
     
@@ -56,7 +57,7 @@ export default function Home() {
       {/* <CartList /> */}
       {/* <ViewAll />
       <Features /> */}
-
+     
       {/* <section className="h-screen w-full"></section> */}
     </>
   );

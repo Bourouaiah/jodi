@@ -9,8 +9,12 @@ import tikTokWhite from "../assets/tik-tok-white.png";
 import facebook from "../assets/icons8-facebook-48.png";
 import email from "../assets/gmail.png";
 import twitter from "../assets/1690643591twitter-x-logo-png.png";
+import UseAuth from "../custom-hook/GetUser";
+import { useState } from "react";
+import { useEffect } from "react";
 
 export default function Footer() {
+
   return (
     <footer className="p-8  bg-black text-gray-400 ">
       <div className="container grid gap-4 m-auto grid-cols-1 sm:grid-cols-2 md:grid-cols-4">

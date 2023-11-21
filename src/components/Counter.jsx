@@ -9,7 +9,7 @@ export default function Counter() {
   });
   let interval;
   const calculateDate = () => {
-    const destination = new Date("7 Nov,2023").getTime();
+    const destination = new Date("7 Dec,2023").getTime();
     interval = setInterval(() => {
       const now = new Date().getTime();
       const deffrent = destination - now;
