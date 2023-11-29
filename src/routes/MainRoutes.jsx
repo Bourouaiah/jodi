@@ -20,6 +20,7 @@ import { useState } from "react";
 import { useEffect } from "react";
 import ProductList from "../components/admin/ProductList";
 import AllVideos from "../components/admin/AllVideos";
+import Emails from "../components/admin/Emails";
 export default function MainRoutes() {
   const { currentUser } = UseAuth();
   
@@ -27,7 +28,7 @@ export default function MainRoutes() {
     <Routes>
       <Route path="/" element={<Home />} />
       <Route path="/ContactUs" element={<ContactUs />} />
-      <Route path="/ContactForDeal" element={<ContactForDeal />} />
+      <Route path="/ContactForDeal/:id" element={<ContactForDeal />} />
       <Route path="/About" element={<About />} />
       <Route path="/picks" element={<AllProdects />} />
       <Route path="/SalesList" element={<SalesList commmon={true} />} />
@@ -46,6 +47,7 @@ export default function MainRoutes() {
       <Route path="/AddProducts" element={<AddProducts />} />
       <Route path="/ProductList" element={<ProductList />} />
       <Route path="/AllVideos" element={<AllVideos />} />
+      <Route path="/Emails" element={<Emails />} />
     </Routes>
   );
 }

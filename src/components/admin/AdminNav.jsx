@@ -56,6 +56,10 @@ export default function AdminNav() {
       path: "/AllVideos",
       element: "videos ",
     },
+    {
+      path: "/Emails",
+      element: "Emails ",
+    },
   ];
   const [isSticky, setIsSticky] = useState(false);
   const parm = useLocation();

@@ -14,6 +14,7 @@ export default function AllVideos() {
      useEffect(() => {
        setData({ loader: loader, products: videos });
      }, [loader, videos]);
+     console.log(videos);
   return (
     <div className="p-8  ">
       {!data.loader ? (
@@ -25,9 +26,9 @@ export default function AllVideos() {
           <thead className="shadow-gray-400 border-b-gray-300  border-b-[2px] p-8 ">
             <tr>
               <th>Sale number </th>
-              <th>sale id </th>
-              <th> upload time time </th>
-              <th>nbr of videos </th>
+              
+              <th> sale location </th>
+              <th>number of videos </th>
               <th>Delete</th>
             </tr>
           </thead>
@@ -39,12 +40,10 @@ export default function AllVideos() {
                   <th>
                     <p>{i + 1}</p>
                   </th>
+                 
                   <th className="text-sm md:text:lg font-semibold">
-                    {item.id}
-                  </th>
-                  <th className="text-sm md:text:lg font-semibold">
-                    <span className="mr-1">$</span>
-                    1212
+                    
+                   {item.saleLocation}
                   </th>
                   <th className="text-sm md:text:lg font-semibold">
                     {item.videos?.length}

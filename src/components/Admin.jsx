@@ -5,6 +5,7 @@ import { auth } from "../firebase/firebaseConfig";
 
 import { useNavigate } from "react-router-dom";
 import { useSelector } from "react-redux";
+import Halmet from "./Halmet";
 import Loader from "./Loader";
 
 
@@ -36,16 +37,19 @@ export default function Admin() {
     }
   };
   return (
-    <>
+    <Halmet title="login">
       {!ld ? (
-      <Loader/>
+        <Loader />
       ) : (
-        <section className="flex justify-center items-center flex-col gap-1">
-          <h1 className="text-3xl text-slate-950 font-bold text-center p-12">
+        <section className="flex justify-center items-center flex-col gap-1 my-6">
+          <h1 className="text-3xl text-black font-bold text-center p-3">
             Login
           </h1>
+          <p className="text-red-600 font-bold text-xl my-2">
+            this page is only for admins{" "}
+          </p>
 
-          <div className="bg-slate-800 p-8 w-2/5 ">
+          <div className="bg-sky_blue p-8 w-4/5 rounded-md shadow-md md:w-2/5 ">
             <form onSubmit={(e) => handelSubmit(e)}>
               <input
                 onChange={(e) =>
@@ -73,18 +77,9 @@ export default function Admin() {
                 login
               </button>
             </form>
-            <p className="text-center text-gray-600">
-              don't have an acount{" "}
-              <Link
-                className="font-semibold underline text-gray-500"
-                to="/signUp"
-              >
-                Signup
-              </Link>{" "}
-            </p>
           </div>
         </section>
       )}
-    </>
+    </Halmet>
   );
 }

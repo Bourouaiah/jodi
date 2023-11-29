@@ -7,7 +7,7 @@ import tikTokWhite from "../assets/tik-tok-white.png";
 import facebook from "../assets/icons8-facebook-48.png";
 import email from "../assets/gmail.png";
 import twitter from "../assets/1690643591twitter-x-logo-png.png";
-import logo from "../assets/pngegg.png";
+import logo from "../assets/Seth&SonsLogo.svg";
 import {
   AiOutlineShopping,
   AiOutlinePlus,
@@ -67,26 +67,32 @@ export default function Header() {
     },
     {
       path: "/SalesList",
-      element: "sales",
+      element: "Sales",
+    },
+
+    {
+      path: "/picks",
+      element: "Staff's picks",
+    },
+    {
+      path: "/About",
+      element: "Sevices",
+    },
+    {
+      path: "/testimonials",
+      element: "Testimonials",
+    },
+
+    {
+      path: "/newsletter",
+      element: "Subscribe",
     },
     {
       path: "/ContactUs",
       element: "Contact",
     },
-    {
-      path: "/picks",
-      element: "steve's picks",
-    },
-    {
-      path: "/testimonials",
-      element: "testimonials",
-    },
-    {
-      path: "/newsletter",
-      element: "newsletter",
-    },
   ];
-  console.log(currentUserState, "AiOutlineLogout");
+  
  const logOut = () => {
    signOut(auth)
      .then(() => {
@@ -141,7 +147,7 @@ export default function Header() {
         <div className="flex justify-between items-center shadow-sm  mb-6 py-1 ">
           <Link className="p-2" to="/">
             <div>
-              <img src={logo} className="w-12 transform scale-[2]" alt="" />
+              <img src={logo} className="h-24 transform scale-[2]" alt="" />
             </div>
           </Link>
           <AiOutlineClose
@@ -178,7 +184,7 @@ export default function Header() {
           >
             <AiOutlineShoppingCart className="text-lg" />
             <Link to="SalesList" className="font-semibold text-lg">
-              Sale
+              Upcoming sales
             </Link>
           </NavLink>
           <NavLink
@@ -192,7 +198,21 @@ export default function Header() {
           >
             <AiOutlineMedicineBox className="text-lg" />
             <Link to="/picks" className="font-semibold text-lg">
-              steve's picks
+              Staff's Picks
+            </Link>
+          </NavLink>
+          <NavLink
+            onClick={closeMenu}
+            to="/About"
+            className={({ isActive }) =>
+              isActive
+                ? "font-bold md:text-lg text-md text-sky_blue flex gap-2 items-center hover:bg-sky_blue hover:text-white ease-linear duration-200  cursor-pointer w-full px-4 py-2 rounded-md hover:shadow "
+                : "flex gap-2 items-center hover:bg-sky_blue  cursor-pointer w-full px-4 py-2 rounded-md hover:shadow md:text-lg text-md hover:text-white  ease-in-out duration-300  font-semibold "
+            }
+          >
+            <AiOutlineTeam className="text-lg" />
+            <Link to="/About" className="font-semibold text-lg">
+              Services
             </Link>
           </NavLink>
           <NavLink
@@ -220,7 +240,7 @@ export default function Header() {
           >
             <AiFillAlert className="text-lg" />
             <Link to="/Newsletter" className="font-semibold text-lg">
-              Newsletter
+              Subscribe
             </Link>
           </NavLink>
           <NavLink
@@ -235,20 +255,6 @@ export default function Header() {
             <AiOutlineContacts className="text-lg" />
             <Link to="/ContactUs" className="font-semibold text-lg">
               Contact us
-            </Link>
-          </NavLink>
-          <NavLink
-            onClick={closeMenu}
-            to="/About"
-            className={({ isActive }) =>
-              isActive
-                ? "font-bold md:text-lg text-md text-sky_blue flex gap-2 items-center hover:bg-sky_blue hover:text-white ease-linear duration-200  cursor-pointer w-full px-4 py-2 rounded-md hover:shadow "
-                : "flex gap-2 items-center hover:bg-sky_blue  cursor-pointer w-full px-4 py-2 rounded-md hover:shadow md:text-lg text-md hover:text-white  ease-in-out duration-300  font-semibold "
-            }
-          >
-            <AiOutlineTeam className="text-lg" />
-            <Link to="/About" className="font-semibold text-lg">
-              About us
             </Link>
           </NavLink>
 

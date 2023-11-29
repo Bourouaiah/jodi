@@ -1,6 +1,6 @@
 import { Link, useLocation } from "react-router-dom";
 import React from "react";
-import localVideo from "../assets/yt5s.com-Web Design Company video background.mp4";
+import localVideo from "../assets/WhatsApp Video 2023-11-27 at 3.40.16 PM.mp4";
 import Statistic from "./Statistic";
 import CartList from "./CartList";
 import ViewAll from "../components/viewAll";
@@ -10,13 +10,14 @@ import SalesList from './salesList'
 import { AiFillAlert, AiOutlineRight } from "react-icons/ai";
 import { useEffect } from "react";
 import ProgresBar from "./ProgresBar";
+import Halmet from "./Halmet";
 
 export default function Home() {
     
   return (
-    <>
+    <Halmet title="Home">
       <div className="overflow-hidden  ease-linear duration-500 relative h-screen flex items-start sm:justify-center  ">
-        <div className="absolute  w-full h-screen z-20 bg-black/40  backdrop-blur-sm backdrop-filter  bg-opacity-20"></div>
+        <div className="absolute  w-full h-screen z-20 bg-black/60  backdrop-blur-sm backdrop-filter  bg-opacity-20"></div>
         <video
           src={localVideo}
           autoPlay
@@ -36,6 +37,7 @@ export default function Home() {
           <div className="flex justify-center items-center gap-2 ">
             <Link
               id="Subscribe"
+              to="/newsletter"
               type="button"
               className="text-white flex gap-1 items-center justify-center bg-gradient-to-r from-cyan-500 to-blue-500 hover:bg-gradient-to-bl focus:scale-110 ease-linear duration-300 focus:outline-none focus:ring-cyan-300 dark:focus:ring-cyan-800 font-semibold rounded-lg text-lg px-6 py-2.5 text-center mr-2 mb-2"
             >
@@ -52,13 +54,13 @@ export default function Home() {
         </div>
       </div>
       <NewsLetter show={true} />
-      <SalesList commmon = {false}/>
+      <SalesList commmon={false} />
 
       {/* <CartList /> */}
       {/* <ViewAll />
       <Features /> */}
-     
+
       {/* <section className="h-screen w-full"></section> */}
-    </>
+    </Halmet>
   );
 }

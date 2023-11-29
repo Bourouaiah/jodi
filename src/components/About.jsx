@@ -1,39 +1,41 @@
 import React from "react";
-
+import Halmet from "./Halmet";
 const About = () => {
   return (
-    <section className="container m-auto p-4">
-      <div className="">
-        <div className="flex flex-wrap -mx-4">
-          <div className="w-full px-4">
-            <div className="mx-auto mb-[60px] max-w-[510px] text-center">
-              <span className="block mb-2 text-lg font-semibold text-primary">
-                Our Team
-              </span>
-              <h2 className="mb-4 text-3xl font-bold text-dark sm:text-4xl md:text-[40px]">
-                Our Awesome Team
-              </h2>
-              <p className="text-base text-body-color">
-                There are many variations of passages of Lorem Ipsum available
-                but the majority have suffered alteration in some form.
-              </p>
+    <Halmet title = "Services" >
+      <section className="container m-auto p-4">
+        <div className="">
+          <div className="flex flex-wrap -mx-4">
+            <div className="w-full px-4">
+              <div className="mx-auto mb-[60px] max-w-[510px] text-center">
+                <span className="block mb-2 text-lg font-semibold text-primary">
+                  Our Team
+                </span>
+                <h2 className="mb-4 text-3xl font-bold text-dark sm:text-4xl md:text-[40px]">
+                  Our Awesome Team
+                </h2>
+                <p className="text-base text-body-color">
+                  There are many variations of passages of Lorem Ipsum available
+                  but the majority have suffered alteration in some form.
+                </p>
+              </div>
             </div>
           </div>
+          <div className="flex flex-wrap justify-center -mx-4">
+            <TeamCard
+              name="Coriss Ambady"
+              profession="Web Developer"
+              imageSrc="https://i.ibb.co/T1J9LD4/image-03-2.jpg"
+            />
+            <TeamCard
+              name="Coriss Ambady"
+              profession="Web Developer"
+              imageSrc="https://i.ibb.co/8P6cvVy/image-01-1.jpg"
+            />
+          </div>
         </div>
-        <div className="flex flex-wrap justify-center -mx-4">
-          <TeamCard
-            name="Coriss Ambady"
-            profession="Web Developer"
-            imageSrc="https://i.ibb.co/T1J9LD4/image-03-2.jpg"
-          />
-          <TeamCard
-            name="Coriss Ambady"
-            profession="Web Developer"
-            imageSrc="https://i.ibb.co/8P6cvVy/image-01-1.jpg"
-          />
-        </div>
-      </div>
-    </section>
+      </section>
+    </Halmet>
   );
 };
 

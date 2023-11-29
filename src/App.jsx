@@ -1,7 +1,7 @@
 import { BrowserRouter, useLocation } from "react-router-dom";
 import "./index.css";
 import React, { useEffect } from "react";
-import { getProducts, getVideos } from "./redux/DbSlice";
+import { getProducts, getVideos, getEmails } from "./redux/DbSlice";
 import { useDispatch } from "react-redux";
 import UsegetProductData from "./custom-hook/UsegetProductData";
 import Layout from "./components/Layout";
@@ -18,6 +18,12 @@ function App() {
  useEffect(() => {
    dispatch(getVideos({ videos: videos, loader: ld }));
  }, [ videos, ld,dispatch]);
+ const { data: Emails, loader: led } = UsegetProductData("emails");
+
+ useEffect(() => {
+   dispatch(getEmails({ data: Emails, loader: led }));
+ }, [Emails, led, dispatch]);
+ 
   useEffect(() => {
     window.scrollTo(0, 0);
   }, [pathname]);

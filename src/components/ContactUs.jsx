@@ -1,13 +1,37 @@
-
+import Halmet from "./Halmet";
+import { useRef } from "react";
+import emailjs from "@emailjs/browser";
+import { Navigate, useNavigate } from "react-router-dom";
 const ContactUs = () => {
+   const form = useRef();
+     const navigate = useNavigate();
+
+   const sendEmail = (e) => {
+     e.preventDefault();
+     emailjs
+       .sendForm(
+         "service_2qr9th8",
+         "template_fhpnqtq",
+         form.current,
+         "Rzz6Cn2lMV2Lh5wyd"
+       )
+       .then(
+         (result) => {
+           console.log(result.text);
+           navigate("/");
+         },
+         (error) => {
+           console.log(error.text);
+         }
+       );
+   };
   return (
-    <>
+    <Halmet title="Contact Us">
       <section className="bg-white py-20 lg:py-[120px] overflow-hidden relative px-8 z-10">
         <div className="container m-auto">
           <div className="flex flex-wrap -mx-4 lg:justify-between">
             <div className="w-full px-4 lg:w-1/2 xl:w-6/12">
               <div className="mb-12 max-w-[570px] lg:mb-0">
-              
                 <h2 className="mb-6 text-[32px] text-[#3056d3] font-bold uppercase text-dark sm:text-[40px] lg:text-[36px] xl:text-[40px]">
                   GET IN TOUCH WITH US
                 </h2>
@@ -74,7 +98,7 @@ const ContactUs = () => {
                       Email Address
                     </h4>
                     <p className="text-base text-body-color">
-                     yasserfat9@gmail.com
+                      yasserfat9@gmail.com
                     </p>
                   </div>
                 </div>
@@ -82,7 +106,7 @@ const ContactUs = () => {
             </div>
             <div className="w-full px-4 lg:w-1/2 xl:w-5/12">
               <div className="relative p-8 bg-white rounded-lg shadow-lg sm:p-12">
-                <form>
+                <form ref={form} onSubmit={sendEmail}>
                   <ContactInputBox
                     type="text"
                     name="name"
@@ -95,13 +119,13 @@ const ContactUs = () => {
                   />
                   <ContactInputBox
                     type="text"
-                    name="phone"
+                    name="phone_nbr"
                     placeholder="Your Phone"
                   />
                   <ContactTextArea
                     row="6"
                     placeholder="Your Message"
-                    name="details"
+                    name="message"
                     defaultValue=""
                   />
                   <div>
@@ -926,7 +950,7 @@ const ContactUs = () => {
           </div>
         </div>
       </section>
-    </>
+    </Halmet>
   );
 };
 

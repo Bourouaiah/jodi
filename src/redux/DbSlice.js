@@ -8,6 +8,16 @@ import { db } from '../firebase/firebaseConfig';
 const initialState = {
     products: [],
     videos: [],
+    Emails:[],
+    addedSales: {
+        saleLocation: "",
+        videos: [],
+    },
+  
+    addedProducts: {
+        saleLocation: "",
+        videos: [],
+    },
     loader: false
 }
 
@@ -18,8 +28,24 @@ const DbSlice = createSlice({
         getProducts: (state, action) => {
             state.products = action.payload.data
             state.loader = action.payload.loader
-            console.log(state.products, 'products')
+        },
+        getEmails: (state, action) => {
+            state.Emails = action.payload.data
+            state.loader = action.payload.loader
+        },
+        handelFormSales: (state, action) => {
+            state.addedSales = action.payload
 
+        },
+        handelFormProducts: (state, action) => {
+            state.addedProducts = action.payload
+        },
+        handelProgressProducts: (state, action) => {
+            state.progressProducts = action.payload
+        },
+        handelProgressVideos: (state, action) => {
+            state.progressVideos = action.payload
+            console.log(state.progressVideos, 'progressVideos')
         },
         getVideos: (state, action) => {
             state.videos = action.payload.videos
@@ -31,7 +57,7 @@ const DbSlice = createSlice({
         },
         deleteItem: (state, action) => {
             state.products = state.products.filter(item => item.id !== action.payload)
-            
+
         }, addProductsToFirestore: (state, action) => {
             const deleteFile = async (filePath) => {
 
@@ -42,7 +68,7 @@ const DbSlice = createSlice({
 
                 // Delete the file
                 deleteObject(desertRef).then(() => {
-                  // File deleted successfully
+                    // File deleted successfully
                 }).catch((error) => {
                     // Uh-oh, an error occurred!
                     console.log(error) // File deleted successfully
@@ -71,6 +97,6 @@ const DbSlice = createSlice({
     }
 });
 
-export const { getProducts, getVideos, deleteItem, addProductsToFirestore } = DbSlice.actions
+export const { getProducts, getEmails, getVideos, deleteItem, handelProgressVideos, handelFormSales, handelFormProducts, addProductsToFirestore } = DbSlice.actions
 
 export default DbSlice.reducer

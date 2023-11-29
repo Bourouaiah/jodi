@@ -11,12 +11,14 @@ export default function Layout() {
     const parm = useLocation();
     console.log(parm.pathname.includes('Admin'))
    const { currentUser } = UseAuth();
+
   return (
     <>
       {currentUser &&
-      (parm.pathname.includes("Admin") ||
+      (parm.pathname.includes("admin") ||
         parm.pathname.includes("AddSale") ||
         parm.pathname.includes("AddProducts") ||
+        parm.pathname.includes("Emails") ||
         parm.pathname.includes("ProductList") ||
         parm.pathname.includes("AllVideos")) ? (
         <AdminNav />

@@ -2,28 +2,40 @@ import { Carousel } from "react-responsive-carousel";
 import { useParams } from "react-router-dom";
 
 import "react-responsive-carousel/lib/styles/carousel.min.css";
-import { useState, useRef, useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import { AiFillPlayCircle } from "react-icons/ai";
 import Counter from "./Counter";
 import { useSelector } from "react-redux";
 import Loader from "./Loader";
 
 export default function SaleDetails() {
+
   let { videos, loader } = useSelector((store) => store.db); // array of arrays
   const { id } = useParams();
-const storedArray = JSON.parse(localStorage.getItem("myArray"));
+  const storedArray = JSON.parse(localStorage.getItem("videos"));
+  const currentSale = storedArray.find((item) => item.id === id);
 
-  console.log(videos, "videos");
-    const product = videos?.find((item) => item.id == id);
-   
+  const product = videos?.find((item) => item.id === id);
+
   const [currentIndex, setCurrentIndex] = useState(0);
-  const videoRefs = product?.videos?.map(() => useRef(null)); // Create an array of video refs
+  const [videoRefs, setVideoRefs] = useState([]); // State to store video refs
   const [isPlaying, setIsPlaying] = useState(false);
   const [isControlsVisible, setIsControlsVisible] = useState(true);
 
+  useEffect(() => {
+    // Create an array of video refs
+    if (loader && product?.videos) {
+      setVideoRefs(
+        Array(product.videos.length)
+          .fill(null)
+          .map(() => React.createRef())
+      );
+    }
+  }, [loader, product]);
+
   const changeVideo = (index) => {
-    videoRefs?.forEach((ref, i) => {
-      if (i === index) {
+    videoRefs.forEach((ref, i) => {
+      if (i === index && ref && ref.current) {
         ref.current.pause();
         setIsPlaying(false); // Start playing the selected video
         setIsControlsVisible(true); // Show controls when a video is started
@@ -34,7 +46,7 @@ const storedArray = JSON.parse(localStorage.getItem("myArray"));
 
   const togglePlay = () => {
     const currentVideoRef = videoRefs[currentIndex];
-    if (currentVideoRef.current) {
+    if (currentVideoRef && currentVideoRef.current) {
       if (!isControlsVisible) {
         currentVideoRef.current.pause();
       } else {
@@ -50,26 +62,26 @@ const storedArray = JSON.parse(localStorage.getItem("myArray"));
 
   // Pause all videos when the component unmounts
   useEffect(() => {
-    if (videoRefs && videoRefs.length > 0) {
-      return () => {
-        videoRefs.forEach((ref) => {
-          if (ref.current) {
-            ref.current.pause();
-          }
-        });
-      };
-    }
-  }, []);
+    return () => {
+      videoRefs.forEach((ref) => {
+        if (ref && ref.current) {
+          ref.current.pause();
+        }
+      });
+    };
+  }, [videoRefs]);
+
   if (!videos || !loader) {
     return <Loader />;
   }
+
   return (
     <div className="relative">
       <Counter />
       {!loader ? (
         <Loader />
       ) : (
-        <div className="video-player container  m-auto  pt-6 px-3 sm:px-0 relative">
+        <div className="video-player container m-auto pt-6 px-3 sm:px-0 relative">
           <Carousel
             showThumbs={false}
             showIndicators={false}
@@ -115,7 +127,12 @@ const storedArray = JSON.parse(localStorage.getItem("myArray"));
                   currentIndex === index ? "border-2 border-blue-500" : ""
                 }`}
                 onClick={() => {
-                  videoRefs[currentIndex].current.pause();
+                  if (
+                    videoRefs[currentIndex] &&
+                    videoRefs[currentIndex].current
+                  ) {
+                    videoRefs[currentIndex].current.pause();
+                  }
                   changeVideo(index);
                 }}
               >
