@@ -95,12 +95,12 @@ export default function Footer() {
             <li className=" flex gap-1 items-center ">
               {" "}
               <AiFillPhone />
-              +213669282074
+              (616) 644-8303
             </li>
             <li className=" flex gap-1 items-center ">
               {" "}
               <AiOutlineMail />
-              yasserfat9@gmail.com
+              sethandsonsestate@gmail.com
             </li>
           </ul>
         </div>
